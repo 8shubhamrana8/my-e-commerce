@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1 class="mb-4 text-light px-5 text-center">Categories</h1>
+    <div class="d-flex flex-wrap flex-column gap-2 mx-auto px-5">
+        {% for value, label in categories %}
+            <a href="{% url 'category_listing' value %}" class="btn btn-outline-light w-25 mx-auto">
+                {{ label }}
+            </a>
+        {% empty %}
+            <p class="text-muted">No categories available.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
